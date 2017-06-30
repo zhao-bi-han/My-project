@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html style="background-color: #fff;">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../js/mui.min.js"></script>
+    <link href="../css/iconfont.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link href="../css/style.css"  rel="stylesheet"/>
+    <script src="../js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+   	 mui.init();
+    
+      $(function(){
+    	 $(".login_reg").bind('tap',function(){
+    	mui.openWindow({
+    		url:'register.html',
+    		id:'register',
+    		show:{
+    			duration:300
+    		}
+    	});
+       });
+       $(".login_btn").bind('tap',function(e){
+       	e.preventDefault();
+       	 //登录判断
+         var user=$("input[name='user']").val();
+         var pass=$("input[name='pass']").val();
+         if(user==''){
+         	mui.toast("请输入手机号");
+         }else if(pass==''){
+         	mui.toast("请输入密码");
+         }else{
+         			$.ajax({
+//   				url:"../login.php",
+                    url:"http://192.168.1.112/myApp/login.php",
+     				type:"POST",
+     				dataType:"json",
+     				data:{
+     					'pass':pass,
+     					'user':user
+     				},
+     				success: function(text){
+     					if(text==1){
+     					mui.toast("登录成功");
+     					setTimeout(function(){
+     						mui.openWindow({
+    	                 	    url:'index.html',
+    		                    id:'index',
+    		                    show:{
+    			                duration:300
+    		                    }
+    	                    });
+     					},1500);
+       					  
+     					}else{
+     						mui.toast("手机号或密码输入有误,请重新输入!");
+     					}
+     				}
+     			});
+         }
+
+       }); 
+       //头像变化
+       $("input[name='user']").bind('blur',function(){
+       	       var user=$("input[name='user']").val();
+       	       $.ajax({
+//   				url:"../login_pic.php",
+                    url:"http://192.168.1.112/myApp/login_pic.php",
+     				type:"POST",
+     				dataType:"json",
+     				data:{
+     					'user':user
+     				},
+     				success: function(text){
+     					if(text!=0){
+     						$(".login_pic img").attr('src','http://192.168.1.112/myApp/picture/'+text);
+     						//预加载页面
+     					 var page = mui.preload({
+                              url:'index.html',
+                              id:'index'
+                             });  
+     					}else{
+     						mui.toast("该用户不存在哦");	
+     					}
+     				}
+     			});
+       });
+    });
+	</script>
+    </head>
+	<body>
+	<div class="mui-page">
+		<div class="mui-navbar-inner login_bar">
+				<span class="login_h login_close mui-action-back">关闭</span>
+				<span class="login_h login_reg">注册</span>
+			</div>
+			<div class="mui-page-content" style="margin-top: 45px;background-color: #fff;">
+				<div class="login_pic">
+					<div>
+					<img src="../picture/logo.png" />
+					</div>
+					
+				</div>
+				
+					<form class="login_form">
+						<input type="text" placeholder="手机号" name="user">
+						<input type="text"  placeholder="密码" name="pass">
+					</form>
+					    <button class="login_btn">登录</button>
+				<div class="other">
+				    <dd>其他登录</dd>
+				</div>
+			</div>
+			<!--<div class="bottom">
+				<a href="javascript:;">
+					<p><span class="mui-icon"></span></p>
+					<span></span>
+				</a>
+				<a href="javascript:;">2</a>
+				<a href="javascript:;">2</a>
+			</div>-->
+	</div>
+	</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../js/mui.min.js"></script>
+    <link href="../css/iconfont.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link href="../css/style.css"  rel="stylesheet"/>
+     <script src="../js/jquery-1.8.0.min.js"></script>
+       <script src="../js/ajaxfileupload.js"></script>
+     <script src="../js/angular.min.js"></script>
+   
+    <script type="text/javascript" charset="utf-8">
+   //返回刷新页面
+    mui.init({
+    beforeback: function() {
+　　　　 //获得父页面的webview
+        var list = plus.webview.currentWebview().opener();
+　　　　 //触发父页面的自定义事件(refresh),从而进行刷新
+        mui.fire(list, 'refresh');
+        //返回true,继续页面关闭逻辑
+        return true;
+    }
+});
+       
+   window.addEventListener('show',function(event){
+        //获得事件参数
+           var id = event.detail.id;
+           var img_src=event.detail.img;
+           $(".pic img").attr('src',img_src);
+           
+           $("#file").bind('change',function(){
+           	//上传头像
+           	    mui.toast("正在上传头像");
+           	   	$.ajaxFileUpload({
+					url: 'http://192.168.1.112/myApp/pic_upload.php?rand='+Math.random(),
+//                  url:'../pic_upload.php',
+					secureuri: false, 
+					fileElementId: 'file', 
+					dataType: 'json', 
+					type:"POST",
+					success : function(data, status) {	
+						var fil_name=data.match(/[\w]+\.(jpg|png|jpeg)$/i);
+						var picture=fil_name[0];
+						setTimeout(function(){
+							$(".pic img").attr('src','http://192.168.1.112/myApp/picture/'+picture);
+						},1000);
+						
+                        $.ajax({
+                        	type:"post",
+                        	url:"http://192.168.1.112/myApp/change_pic.php",
+                        	data:{
+                        		'id':id,
+                        		'img':picture
+                        	},
+                        	success:function(data){
+                        		
+                        	}
+                        });						
+					} 
+				});
+           });
+    });
+    
+	</script>
+   	
+    </head> 
+	<body >
+		<div class="mui-content" >
+		   <div class="pic">
+		   	  <img src="../picture/11.jpg" />
+		   </div>
+          <div class="chang_btn">
+          	<div>
+          	  <p><button id="btn1">更换头像</button>
+          	  	<input type="file" id="file" name="file" accept="image/gif, image/jpeg,image/jpg, image/png,image/JPG"/>
+          	  </p> 
+          	   <p><button id="btn2" class="mui-action-back">返回</button></p> 
+          	</div>
+          </div>
+			</div>
+			<script>
+//				var app = angular.module('myApp', []);
+//			app.controller('myCtrl', function($scope, $http) {
+//				$http({
+//					method: 'POST',
+//				   url:'http://192.168.1.112/myApp/my.php'
+////					url: '../my.php'
+//				}).then(function successCallback(text) {
+//					$scope.info = text.data.records;
+//				}, function errorCallback(text) {
+//					$scope.info = "失败";
+//				});
+//
+//			});
+			</script>
+			
+	</body>
+</html>

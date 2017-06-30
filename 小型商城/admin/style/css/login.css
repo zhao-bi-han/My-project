@@ -1,0 +1,102 @@
+body{
+	/*background-color: #4cb2cb;*/
+
+}
+.bg{
+position: relative;
+width: 315px;
+height: 395px;
+/*border: 1px solid red;*/
+left: 38%;
+top: 100px;
+box-shadow: 1px 1px 3px #c2c1c1;
+
+}
+.login{
+	position: absolute;
+width: 130px;
+height: 38px;
+/*border: 1px solid red;*/
+left: 29%;
+top:22px;
+font-size: 20px;
+color: #000;
+}
+.name input,.pass input{
+	height: 30px;
+	width: 181px;
+	position: absolute;
+   background: none;
+   border: none;
+    outline: none;
+}
+.name{
+position: absolute;
+width: 219px;
+height: 36px;
+/*border: 1px solid red;*/
+left: 15%;
+top: 86px;
+font-size: 20px;
+border: 1px solid #dfe1e1;
+}
+.pass{
+position: absolute;
+width:219px;
+height: 36px;
+/*border: 1px solid red;*/
+left: 15%;
+top: 146px;
+font-size: 20px;
+border: 1px solid #dfe1e1;
+}
+.yzl{
+	position: absolute;
+width: 118px;
+height: 36px;
+/*border: 1px solid red;*/
+left: 15%;
+top: 204px;
+font-size: 20px;
+border: 1px solid #dfe1e1;
+}
+.yzl input{
+	height: 30px;
+	width: 80px;
+	position: absolute;
+	background: none;
+   border: none;
+    outline: none;
+}
+.yzr{
+	position: absolute;
+	top: 204px;
+	left: 59%;
+width: 79px;
+height: 36px;
+	border: 1px solid #dfe1e1;
+	line-height: 36px;
+	text-align: center;
+}
+
+.sub{
+	position: absolute;
+width: 213px;
+height: 39px;
+/*border: 1px solid red;*/
+left: 15%;
+top: 270px;
+font-size: 20px;
+background-color: #4cb2cb;
+border-radius: 5px;
+}
+.sub input{
+	height: 40px;
+	width: 214px;
+	border: none;
+	background: none;
+	border-radius: 5px;
+	color: #fff;
+   font-size: 14px;
+   font-weight: 500;
+}

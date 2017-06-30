@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../js/mui.min.js"></script>
+		<link href="../css/iconfont.css" rel="stylesheet" type="text/css" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/style.css" rel="stylesheet" />
+		<script src="../js/angular.min.js"></script>
+		<script src="../js/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+			$(function() {
+				$(".mui-icon-clear").bind('tap', function() {
+					location.reload();
+				});
+				//删除
+				$("#mui-card").on('tap', 'a', function() {
+					var elem = this;
+					var div = elem.parentNode.parentNode;
+					var id = div.getAttribute('data');
+					mui.confirm('确定删除好友？', function(e) {
+						if(e.index == 1) {
+							div.parentNode.removeChild(div);
+							$.ajax({
+								url:'http://192.168.1.112/myApp/del_mysearch.php',
+//								url: '../del_mysearch.php',
+								type: 'POST',
+								data: {
+									'id': id
+								},
+								success: function(data) {
+									mui.toast("删除成功");
+								}
+							});
+						}
+					});
+				});
+				//改变物品状态   已找到 禁用
+				$("#mui-card").on('tap', 'button', function() {
+					var elem = this;
+					var _this = $(this);
+					var div = elem.parentNode.parentNode;
+					var id = div.getAttribute('data');
+					mui.confirm('确定修改状态？', function(e) {
+						if(e.index == 1) {
+							$.ajax({
+								 url:'http://192.168.1.112/myApp/update_mysea.php',
+//								url: '../update_mysea.php',
+								type: 'POST',
+								data: {
+									'id': id
+								},
+								success: function(data) {
+									if(data == 1) {
+										_this.html("已找到");
+										_this.attr('disabled', 'true');
+										mui.toast("修改成功");
+									}
+								}
+							});
+						}
+					});
+				});
+			})
+	
+		</script>
+	</head>
+
+	<body ng-app="myApp">
+		<div class="mui-navbar-inner mui-bar mui-bar-nav">
+			<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</button>
+			<h1 class="mui-center mui-title">我的招领</h1>
+		</div>
+		<div class="mui-content" ng-controller="myCtrl">
+			<!--搜索  -->
+			<div class="mui-input-row mui-search my_search">
+				<input type="search" class="mui-input-clear" placeholder="搜索我的动态" ng-model="val">
+			</div>
+			<!--内容  -->
+		<div id="mui-card">
+			<div class="mui-card" ng-repeat="x in info | filter: val " data="{{x.id}}">
+				<div class="mui-card-header">
+					<span class="pic"><img ng-src="http://192.168.1.112/myApp/picture/{{x.user_pic}}" /></span>
+					<p class="search_info">
+						<span class="search_name">{{x.user_name}}</span><br />
+						<span class="search_time">{{x.look_time}}</span>
+					</p>
+					<button type="button" class="mui-btn mui-btn-outlined my_search btn" id="btn" ng-disabled='{{x.look_state}}'>{{x.state}}</button>
+				</div>
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						<span>物品：{{x.look_name}}</span>
+						<p>描述：{{x. look_describe}}</p>
+
+						<p>
+							<img ng-src="../picture/{{pic.look_img}}" ng-repeat="pic in x.look_picture" ng-show="{{x.img_or}}"/>
+						</p>
+
+					</div>
+				</div>
+				<div class="mui-card-footer">
+					联系电话:{{x.look_phone}}
+					<a href="javascript:;" style="color: #999;"><span class="mui-icon iconfont icon-shanchu1"></span></a>
+				</div>
+			</div>
+		</div>
+		</div>
+		<script>
+			var app = angular.module('myApp', []);
+			app.controller('myCtrl', function($scope, $http) {
+				$http({
+					method: 'POST',
+				   url:'http://192.168.1.112/myApp/my_claim.php'
+//					url: '../my_claim.php'
+				}).then(function successCallback(text) {
+					$scope.info = text.data.records;
+				}, function errorCallback(text) {
+					$scope.info = "失败";
+				});
+				$scope.val = '';
+
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style/css/common.css">
+	<link rel="stylesheet" type="text/css" href="style/css/conn.css">
+	<link rel="stylesheet" type="text/css" href="style/css/goods.css">
+	<script type="text/javascript" src="style/js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="style/js/common.js"></script>
+	<style type="text/css">
+  .goods_da{
+	position: relative;
+	width: 300px;
+	height: 300px;
+	border: 1px solid red;
+	left: 20%;
+	top:80px;
+
+}
+.goods_xiao{
+	position: relative;
+	height: 50px;
+	width: 300px;
+	border: 1px solid red;
+	left:20%;
+	top:100px;
+}
+.goods_xiao ul{
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	left: -10px;
+}
+.goods_xiao li{
+  list-style: none;
+  float: left;
+  border: 1px solid blue;
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+}
+.title{
+ position: relative;
+ width: 500px;
+ height: 50px;
+ border: 1px solid red;
+ left: 43%;
+ top:-274px;
+}
+.price{
+	position: relative;
+	width: 500px;
+	height: 60px;
+	border: 1px solid red;
+	left: 43%;
+	top:-250px;
+}
+</style>
+</head>
+<body>
+{#include "head.html"#}
+<hr class="wm_hr" id="wm_hr" style="top:150px">
+   <div class="goods_da"></div>
+   <div class="goods_xiao">
+   	 <ul>
+   	 	<li></li>
+   	 	<li></li>
+   	 	<li></li>
+   	 </ul>
+   </div>
+   <div class="title"></div>
+   <div class="price"></div>
+   <div class="ljgm"></div>
+   <div class="gwc"></div>
+</body>
+</html>

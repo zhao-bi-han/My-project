@@ -1,0 +1,21 @@
+.phone-info.welcom{
+	position: relative;
+    top: -64px;
+}
+.patent{
+	top:43px;
+}
+.off{
+	left:120%;
+    top: -128px;
+}
+.off a:hover{
+	color:#fff;
+}
+#btn{
+	margin-top: 17px;
+}
+	#head{
+		overflow:hidden; 
+		width: 100%;
+	}

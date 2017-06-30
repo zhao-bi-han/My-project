@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../js/mui.min.js"></script>
+    <link href="../css/iconfont.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link href="../css/style.css"  rel="stylesheet"/>
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    mui.init() ;
+
+window.addEventListener('show',function(event){
+        //获得事件参数
+           var id = event.detail.id;
+          $('.look_img img').remove();
+        //根据id向服务器请求新闻详情
+           $.ajax({
+         	url:'http://192.168.1.112/myApp/look_news.php', 
+//      url:'../look_news.php', 
+           	type:'POST',
+           	data:{
+           		'id':id
+           	}     ,
+           	success:function(data){
+           		var obj=JSON.parse(data);
+                $("#header").html(obj.user_name);
+           		$("#time").html(obj.look_time);  
+           		$("#goods_name").html("物品 :"+obj.look_name); 
+           		$("#describe").html("描述 :"+obj.look_describe);
+           		$("#phone").html("联系电话 :"+obj.look_phone);
+           		//图片
+        		var picture=obj.look_picture;
+        		var img=picture.look_img0;
+     		      if(img!=""){
+      			      for(x in picture){
+      			      	$(".look_img").append("<img src='http://192.168.1.112/myApp/picture/"+picture[x]+"'/>");
+      			      }
+      		     }
+         		
+           	}
+           });
+    });
+	</script>
+   	
+    </head>
+	<body >
+			<!--我的消息-->
+			<div id="account" class="mui-page" ng-repeat="x in info">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</button>
+				<h1 class="mui-center mui-title" id="header"></h1>
+			</div>
+			<div class="mui-page-content look" style="margin-top: 45px;">
+				<p class="look_time" id="time"></p>
+			   <div class="look_left">
+			   	<img src="../img/timg.jpg" />
+			   </div>
+			   <div class="look_right">
+			   	<div class="look_xiao">
+			   		<i></i>
+			   		<em></em>
+			   	</div>
+			   	<div class="look_content">
+			   		<span id="goods_name"></span><br />
+			   		<span id="describe"></span><br>
+			   		<span id="phone"></span>
+			   		<div class="look_img">
+			   			
+			   		</div>
+			   	</div>
+			   </div>
+			</div>
+	
+		</div>
+		
+	</body>
+</html>

@@ -1,0 +1,272 @@
+<?php /* Smarty version Smarty-3.1.14, created on 2017-05-02 17:59:03
+         compiled from "templates\renling.html" */ ?>
+<?php /*%%SmartyHeaderCode:1472758f9723808cff3-74896898%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '8bca689075e0b1cb397fb04710b981dc4f36fed3' => 
+    array (
+      0 => 'templates\\renling.html',
+      1 => 1493719107,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '1472758f9723808cff3-74896898',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.14',
+  'unifunc' => 'content_58f9723818e9c0_70656525',
+  'variables' => 
+  array (
+    'stu' => 0,
+    'pho' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_58f9723818e9c0_70656525')) {function content_58f9723818e9c0_70656525($_smarty_tpl) {?><!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="plugins/layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="css/global.css" media="all">
+	<link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/table.css" />
+	<link rel="stylesheet" href="css/my.css" />
+	<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+	<style type="text/css">
+		.card a{
+			display: block;
+			width: 37px;
+			height: 36px;
+			/* border: 1px solid blue; */
+			position: absolute;
+			left: 151px;
+			top: 0px;
+		}
+		.card img{
+			position: absolute;
+			top: 1px;
+			left: -3px;
+			width: 38px;
+		}
+		.card .layui-input{
+			width: 150px;
+			border: none;
+		}
+		.card .layui-input-block.rl{
+        border: 1px solid #E6E6E6;
+        width: 190px;
+		}
+		.stu_img,.sk_img{
+			overflow: hidden;
+		}
+		.stu_img img,.sk_img img{
+			width: 200px;
+			height: auto;
+		}
+		.layui-elem-field.ds_other{
+			left: 555px;
+		}
+		.layui-btn{
+			margin-left:-70px; 
+		}
+	</style>
+	<script type="text/javascript">
+		function claim(no){
+			var card=$(".card input").val();
+			var no=$("#no").val();
+			if(card==''){
+                layer.msg("请输入卡号");
+			}else if(no==''){
+				layer.msg("请填写完整信息");
+			}else{
+				$.ajax({
+				url: 'claim.php',
+				type: 'POST',
+				data: {
+					'no': no,
+				},
+				success: function(text){
+					if(text==1){
+						layer.msg("认领成功");
+						setTimeout(function(){
+							location.href="b_table.php";
+						},1000);
+						
+					}else{
+						layer.msg("认领失败");
+					}
+				}
+			})
+			}
+			
+		}
+		$(function(){
+
+			$(".back").click(function(event) {
+				location.href="b_table.php";
+			});
+
+           $("#search").click(function(event) {
+              var card=$(".card input").val();
+              if(card==''){
+                 layer.msg("请输入卡号");
+              }else{
+                  $.ajax({
+    			url: 'renling_search.php',
+    			type: 'POST',
+    			dataType:"json",
+    			data: {
+    				'card': card
+     			},
+     			success: function(text){
+     				if(text==0){
+     					layer.msg("没查到该学生的信息"); 
+
+     				}else{
+     					$("#no").val(text[0]['stu_no']);
+     					$("#name").val(text[0]['stu_name']);
+     					$("#grade").val(text[0]['stu_grade']);
+     					$("#major").val(text[0]['stu_major']);
+     					$("#phone").val(text[0]['p_phone']);
+     					$(".sk_img img").attr('src','picture/'+text[0]['stu_picture']);
+     				}
+     			}
+     		})
+              }
+           });
+		});
+	</script>
+</head>
+
+<body>
+	<div class="admin-main ren">
+			<fieldset class="layui-elem-field bj_other">
+				<legend>丢失人信息</legend>
+				<form class="layui-form" action="">
+					<!--照片-->
+					<div class="stu_img">
+						<img src="picture/<?php echo $_smarty_tpl->tpl_vars['stu']->value[0]['stu_picture'];?>
+"/>
+					</div>
+					<div class="layui-form-item renling" style="margin-top: 30px;">
+						<label class="layui-form-label">学号</label>
+						<div class="layui-input-block rl">
+							<input type="text" name="number" autocomplete="off" value="<?php echo $_smarty_tpl->tpl_vars['stu']->value[0]['stu_no'];?>
+" class="layui-input" disabled="disabled">
+						</div>
+					</div>
+					<div class="layui-form-item renling">
+						<label class="layui-form-label">姓名</label>
+						<div class="layui-input-block rl">
+							<input type="text" name="name" autocomplete="off" value="<?php echo $_smarty_tpl->tpl_vars['stu']->value[0]['stu_name'];?>
+" class="layui-input" disabled="disabled">
+						</div>
+					</div>
+					<div class="layui-form-item renling">
+						<label class="layui-form-label">年级</label>
+						<div class="layui-input-block rl">
+							<input type="text" name="nj" autocomplete="off" value="<?php echo $_smarty_tpl->tpl_vars['stu']->value[0]['stu_grade'];?>
+" class="layui-input" disabled="disabled">
+						</div>
+					</div>
+					<div class="layui-form-item renling">
+						<label class="layui-form-label">专业</label>
+						<div class="layui-input-block rl">
+							<input type="text" name="zy" autocomplete="off" value="<?php echo $_smarty_tpl->tpl_vars['stu']->value[0]['stu_major'];?>
+" class="layui-input" disabled="disabled">
+						</div>
+					</div>
+					<div class="layui-form-item renling">
+						<label class="layui-form-label">手机号</label>
+						<div class="layui-input-inline">
+							<input type="tel" name="phone" lay-verify="phone" autocomplete="off" class="layui-input" value="<?php echo $_smarty_tpl->tpl_vars['pho']->value[0]['p_phone'];?>
+" disabled="disabled">
+						</div>
+					</div>
+					<div class="layui-form-item renling">
+						<label class="layui-form-label">卡号</label>
+						<div class="layui-input-block rl">
+							<input type="text" name="cardid" autocomplete="off" value="<?php echo $_smarty_tpl->tpl_vars['pho']->value[0]['p_card'];?>
+" class="layui-input" disabled="disabled">
+						</div>
+					</div>						
+				</form>
+
+			</fieldset>
+		</div>
+		<div class="admin-main ren">
+			<fieldset class="layui-elem-field ds_other">
+				<legend>刷卡信息</legend>
+				<form class="layui-form" action="">
+					<!--照片-->
+					<div class="sk_img">
+						<img src=""/>
+					</div>
+					<div class="layui-form-item renling card" style="margin-top: 30px">
+						<label class="layui-form-label">卡号</label>
+						<div class="layui-input-block rl">
+							<input type="text" name="cardid" autocomplete="off" class="layui-input" placeholder="请输入卡号点击搜索">
+							<a href="javascript:;" id="search"><img src="images/search.png"></a>
+						</div>
+					</div>	
+					<div class="layui-form-item renling" >
+						<label class="layui-form-label">学号</label>
+						<div class="layui-input-block rl">
+							<input type="text" name="number" autocomplete="off" class="layui-input" disabled="disabled" id="no">
+						</div>
+					</div>
+					<div class="layui-form-item renling">
+						<label class="layui-form-label">姓名</label>
+						<div class="layui-input-block rl">
+							<input type="text" name="name" autocomplete="off" class="layui-input" disabled="disabled" id="name">
+						</div>
+					</div>
+					<div class="layui-form-item renling">
+						<label class="layui-form-label">年级</label>
+						<div class="layui-input-block rl">
+							<input type="text" name="nj" autocomplete="off" class="layui-input" disabled="disabled" id="grade">
+						</div>
+					</div>
+					<div class="layui-form-item renling">
+						<label class="layui-form-label">专业</label>
+						<div class="layui-input-block rl">
+							<input type="text" name="zy" autocomplete="off"  class="layui-input" disabled="disabled" id="major">
+						</div>
+					</div>
+					<div class="layui-form-item renling">
+						<label class="layui-form-label">手机号</label>
+						<div class="layui-input-inline">
+							<input type="tel" name="phone" lay-verify="phone" autocomplete="off" class="layui-input"  disabled="disabled" id="phone">
+						</div>
+					</div>
+
+				</form>
+			</fieldset>
+		</div>
+		<button class="layui-btn" id="quxiao" onclick="claim(<?php echo $_smarty_tpl->tpl_vars['stu']->value[0]['stu_no'];?>
+)">认领</button>
+		<button class="layui-btn back" id="quxiao">返回</button>
+	</div>
+
+	<script type="text/javascript" src="plugins/layui/layui.js"></script>
+	<script>
+		layui.config({
+			base: 'plugins/layui/modules/'
+		});
+
+		layui.use(['icheck', 'laypage','layer'], function() {
+			var $ = layui.jquery,
+			laypage = layui.laypage,
+			layer = parent.layer === undefined ? layui.layer : parent.layer;
+			$('input').iCheck({
+				checkboxClass: 'icheckbox_flat-green'
+			});
+		});
+	</script>
+</body>
+
+</html><?php }} ?>

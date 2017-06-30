@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../js/mui.min.js"></script>
+    <link href="../css/iconfont.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link href="../css/style.css"  rel="stylesheet"/>
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    mui.init() ;
+    $(function(){
+    	$(".mui-icon-clear").bind('tap',function(){
+    		 location.reload();
+    	});
+    })
+	</script>
+    </head>
+	<body ng-app="myApp">
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">校园寻物</h1>
+		</header>
+		<div class="mui-content" ng-controller="myCtrl">
+		<!--搜索  -->
+		<div class="mui-input-row mui-search">
+           <input type="search" class="mui-input-clear" ng-model="val" placeholder="搜索">
+        </div>
+
+        <!--内容  -->
+        <div class="mui-card" ng-repeat="x in info | filter: val ">
+				<div class="mui-card-header">
+						<span class="pic"><img ng-src="http://192.168.1.112/myApp/picture/{{x.user_pic}}" /></span>
+						<p class="search_info">
+							<span class="search_name">{{x.user_name}}</span><br />
+							<span class="search_time">{{x.look_time}}</span>
+						</p>
+						<span class="search_state">{{x.look_state}}</span>
+				</div>
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						<span>物品：{{x.look_name}}</span>
+						<p>描述：{{x.	look_describe}}</p>
+						
+						<p >
+							<img  ng-src="../picture/{{pic.look_img}}" ng-repeat="pic in x.look_picture" ng-show="{{x.img_or}}"/>			
+						</p>
+						
+					</div>
+				</div>
+				<div class="mui-card-footer">联系电话:{{x.look_phone}}</div>
+			</div>		
+			</div>
+			
+			<script>
+					var app=angular.module('myApp',[]);
+					app.controller('myCtrl',function($scope,$http,$interval){
+						$interval(function(){
+					$http({
+				      method:'POST',
+				      url:'http://192.168.1.112/myApp/claim.php'
+			        }).then(function successCallback(text){
+			         $scope.info=text.data.records;
+                    },function errorCallback(text){ 
+                    	$scope.info="失败";
+                   });
+						},1000);
+			        
+                   $scope.val='';
+                   
+					
+});
+			</script>
+	</body>
+</html>

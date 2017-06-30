@@ -1,0 +1,119 @@
+    <!DOCTYPE html>
+    <html > 
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>欢迎来到校园寻</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/font-awesome.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/add.css">
+        <link rel="stylesheet" href="css/templatemo-style.css">
+        <link rel="stylesheet" href="css/style2.css" media="screen" type="text/css" />
+        <link rel="stylesheet" href="css/add.css" type="text/css" />
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script type="text/javascript" src="admin/js/jquery-1.8.0.min.js"></script>
+        <style type="text/css">
+            .bottom{
+                color: #fff;
+            }
+            .bottom:hover{
+                color: #000;
+            }
+        </style>
+        <script type="text/javascript">
+            $(function(){
+                $("#btn").click(function(event) {
+                  var yphone=$("#phone").val();
+                  if(yphone==''){
+                    layer.msg("请填写预留手机号");
+                 }else{
+                    $.ajax({
+                        url: 'index_cl.php',
+                        type: 'POST',
+                        data: {
+                            'ypho': yphone,
+                        },
+                        success: function(text){
+                            if(text==1){
+                                layer.msg("报警成功");
+                            }else if(text==2){
+                                layer.msg("报警失败");
+                            }else if(text==0){
+                              layer.msg("您已经报警啦");
+                          }
+                      }
+                  })
+                }
+            });
+            })
+        </script>
+    </head>
+    <body>         
+        <div class="site-bg"></div>
+        <div class="site-bg-overlay"></div>
+
+        <!-- TOP HEADER -->
+        <div class="top-header">
+            <div class="container" id="head">
+                <div class=" col-md-6 col-sm-6 col-xs-12">
+                    <p class="phone-info welcom">{#$stuname#} 同学 ,<a href="#">你好.欢迎登陆保定学院手机寻找平台！</a></p>
+                    <p class="off"><a href="login.php">退出</a></p>
+                </div>
+
+            </div>
+        </div> <!-- .top-header -->
+        <div class="container" id="page-content">
+            <div class="row">
+                <div class="col-md-8 col-sm-12 col-md-offset-2 content-holder">
+                    <div id="menu-1" class="homepage home-section text-center">
+                        <div class="welcome-text">
+                            <h2>同学你好<strong>请填写以下信息</strong></h2>
+                            <p>手机寻找系统 <span class="orange"></span><span class="green">使用方法：</span>将手机状态改为报警状态，并填写一个可以联系到你的预留手机号码，以便于找到手机后立即联系到你；如果自行找到手机请前往学校保卫室取消报警。</p>
+                            <form action="#" method="post" class="subscribe-form">
+                                <div class="row">
+                                    <fieldset class="col-md-offset-2 col-md-6">
+                                        <input name="yl_phone" type="text" class="email" id="phone" placeholder="填写预留手机号">
+                                    </fieldset>
+                                    <fieldset class="col-md-4 button-holder">
+
+                                        <input name="button" type="button" class="button default" id="btn" value="报警" >
+                                    </fieldset>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12  text-center">
+                                <p class="patent">2017 &copy;&nbsp;
+                                 <a href="javascript:;" target="_blank"  class="bottom">保定学院&nbsp;</a>信息技术系物联网工程
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- .site-footer -->
+
+                    <script src="js/vendor/jquery-1.10.2.min.js"></script>
+                    <script src="js/plugins.js"></script>
+                    <script src="js/main.js"></script>
+                    <!-- templatemo 439 rectangle -->
+                    <script type="text/javascript" src="admin/plugins/layui/layui.js"></script>
+                    <script>
+                        layui.config({
+                          base: 'admin/plugins/layui/modules/'
+                      });
+
+                        layui.use(['icheck', 'laypage','layer'], function() {
+                          var $ = layui.jquery,
+                          laypage = layui.laypage,
+                          layer = parent.layer === undefined ? layui.layer : parent.layer;
+                          $('input').iCheck({
+                            checkboxClass: 'icheckbox_flat-green'
+                        });
+                      });
+                  </script>
+              </body>
+              </html>

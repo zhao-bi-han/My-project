@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../js/mui.min.js"></script>
+    <link href="../css/iconfont.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link href="../css/style.css"  rel="stylesheet"/> 
+    <script src="../js/angular.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    mui.init() ;
+	</script>
+   	
+    </head>
+	<body ng-app="myApp">
+			<!--账号与安全-->
+			<div id="account" class="mui-page" ng-controller="myCtrl">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</button>
+				<h1 class="mui-center mui-title">账号与安全</h1>
+			</div>
+			<div class="mui-page-content" style="top: 45px;">
+				<div class="mui-scroll-wrapper" ng-repeat="x in info">
+					<div class="mui-scroll">
+						<ul class="mui-table-view my_news">
+							<li class="mui-table-view-cell">
+								<a id="head" >
+									<span class="account_pic font">头像</span>
+								<span class="mui-pull-right head">
+									<img class="head-img mui-action-preview" id="head-img1" ng-src="../picture/{{x.user_pic}}"/>
+								</span>
+							</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a>
+									<span class="font">昵称</span>
+									<span class="mui-pull-right ">{{x.user_name}}</span>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a>
+									<span class="font">我的账号</span>
+									<span class="mui-pull-right">{{x.user_phone}}</span>
+								</a>
+							</li>
+						</ul>
+						<ul class="mui-table-view lianxi">
+							<li class="mui-table-view-cell">
+								<a>
+									<span class="font">QQ号 </span>
+									<span class="mui-pull-right">88888888</span>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a>
+									<span class="font">手机号</span>
+									<span class="mui-pull-right">{{x.user_phone}}</span>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a>
+									<span class="font">邮箱地址</span>
+									<span class="mui-pull-right">1171893698@qq.com</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+	var app = angular.module('myApp', []);
+			app.controller('myCtrl', function($scope, $http) {
+				$http({
+					method: 'POST',
+				   url:'http://192.168.1.112/myApp/account.php'
+//					url: '../account.php'
+				}).then(function successCallback(text) {
+					$scope.info = text.data.records;
+				}, function errorCallback(text) {
+					$scope.info = "失败";
+				});
+
+			});
+</script>
+	</body>
+</html>

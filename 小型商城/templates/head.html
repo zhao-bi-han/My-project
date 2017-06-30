@@ -1,0 +1,118 @@
+   <div class="head_top">
+    <div class="head_top_left">
+     <ul>
+      <li>欢迎来到 帽子小铺 ！&nbsp;&nbsp;&nbsp;&nbsp;</li>
+      {#if $namearray[1]==0#}
+      <li><a href="login.php">登录</a>&nbsp;&nbsp;|</li>
+      <li><a href="register.php"> 注册</a></li>
+      {#elseif $namearray[1]==1#}
+      <li>{#$namearray[0]#}</li><img src="style\img\xj.png" style="position: relative;top: -4px;left: -6px;">
+      {#/if#}
+    </ul>
+  </div>
+  <div class="head_top_right">
+   <ul>
+     {#if $namearray[1]==0#}
+     <li><a href="login.php"  onClick="return confirm('亲，你还没有登录呦！');">我的账户</a>&nbsp;&nbsp;&nbsp;|</li>
+     <li><a href="login.php"  onClick="return confirm('亲，你还没有登录呦！');">收藏夹</a>&nbsp;&nbsp;&nbsp;|</li>
+     <li><a href="login.php"  onClick="return confirm('亲，你还没有登录呦！');">购物车</a>&nbsp;&nbsp;&nbsp;|</li>
+     <li><a href="#">联系我们</a></li>
+     {#elseif $namearray[1]==1#}
+     <li><a href="myaccount.php">我的账户</a>&nbsp;&nbsp;&nbsp;|</li>
+     <li><a href="collect.php">收藏夹</a>&nbsp;&nbsp;&nbsp;|</li>
+     <li><a href="cart.php">购物车</a>&nbsp;&nbsp;&nbsp;|</li>
+     <li><a href="#">联系我们</a></li>
+     <li><a href="login.php">退出</a></li>
+     {#/if#}
+   </ul>
+ </div>
+</div>
+<!-- 导航 -->
+<div class="head">
+ <div class="logo">
+  <img src="style/img/logo.png">
+</div>
+<div class="nav">
+  <ul>
+   <li><a href="index.php" id="nav_a">首页</a></li>
+   <li class="woman" id="woman"><a href="woman.php" class="index_w" id="nav_a">女性</a>
+    <!-- 女性下拉框 -->
+    <div class="nav_woman" >
+
+     <div class="woman_class">
+       <span >分类 ：</span>
+       <ul>
+         {#foreach item=wcla from=$wclas#}
+         <li><a href="wclass.php?id={#$wcla['class_no']#}">{#$wcla['class_name']#}</a></li>
+         {#/foreach#}
+       </ul>
+     </div>
+     <hr>
+     <div class="woman_style">
+       <span>风格 ：</span>
+       <ul>
+         {#foreach item=wsty from=$wstyl#}
+         <li><a href="wstyle.php?id={#$wsty['style_no']#}">{#$wsty['style_name']#}</a></li>
+         {#/foreach#}
+       </ul>
+     </div>
+   </div>
+
+ </li>
+ <li class="man" id="man"><a href="man.php" class="index_m" id="nav_a">男性</a>
+  <!-- 男性下拉框 -->
+  <div class="nav_man" >
+   <div class="man_class">
+     <span >分类 ：</span>
+     <ul>
+       {#foreach item=mcla from=$mclas#}
+       <li><a href="mclass.php?id={#$mcla['class_no']#}">{#$mcla['class_name']#}</a></li>
+       {#/foreach#}
+       
+     </ul>
+   </div>
+   <hr>
+   <div class="man_style">
+     <span>风格 ：</span>
+     <ul>
+       {#foreach item=msty from=$mstyl#}
+       <li><a href="mstyle.php?id={#$msty['style_no']#}">{#$msty['style_name']#}</a></li>
+       {#/foreach#}
+     </ul>
+   </div>
+ </div>
+
+</li>
+<li><a href="other.php" id="nav_a">其他</a></li>
+</ul>
+</div>
+<!-- 搜素框 -->
+<div class="search">
+  <form action="search.php" method="post">
+    <input type="text" name="search"  class="search_search" placeholder="Search">
+    <input type="submit" name="submit" class="search_submit" value="">
+  </form>
+</div>
+<!-- 收藏 购物车 -->
+{#if $namearray[1]==0#}
+<div class="head_right">
+  <div class="head_right_collect">
+   <a href="login.php" onClick="return confirm('亲，你还没有登录呦！');"> <img src="style/img/collect.png"></a>
+ </div>
+ <div class="head_right_cart">
+   <a href="login.php" onClick="return confirm('亲，你还没有登录呦！');"><img src="style/img/cart.png"></a>
+ </div>
+</div>
+{#elseif $namearray[1]==1#}
+<div class="head_right">
+  <div class="head_right_collect">
+   <a href="collect.php"> <img src="style/img/collect.png"></a>
+ </div>
+ <div class="head_right_cart">
+   <a href="cart.php"><img src="style/img/cart.png"></a>
+ </div>
+ <div class="num" style="width: 20px;height: 20px;background-color: red;border-radius: 100%;z-index: 99;position: absolute;left: 74px;top: -4px;text-align: center;color: #fff;font-size: 12px;line-height: 20px">{#$num#}</div>
+</div>
+{#/if#}
+</div>
+

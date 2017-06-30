@@ -1,0 +1,348 @@
+{
+  "template/index.html": {
+    "resources": [
+      "template/search.html",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "fonts/iconfont.woff",
+      "js/jquery-1.8.0.min.js",
+      "index.php"
+    ],
+    "refer": [
+      "template/search.html",
+      "template/release.html",
+      "template/claim.html",
+      "template/my.html",
+      "template/news.html",
+      "template/person.html",
+      "template/goods.html",
+      "template/account.html",
+      "template/privacy.html",
+      "template/about.html",
+      "template/friend.html",
+      "template/look_news.html"
+    ]
+  },
+  "template/search.html": {
+    "resources": [
+      "img/1.png",
+      "fonts/mui.ttf",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "img/timg.jpg",
+      "img/1.jpg",
+      "js/angular.min.js",
+      "search.php",
+      "js/jquery-1.8.0.min.js",
+      "picture/201705221315443654.jpg",
+      "picture/1.jpg",
+      "picture/201705230324102394.jpg",
+      "picture/20170523032447196.jpg",
+      "picture/201705230324532447.jpg",
+      "picture/201705230325355318.jpg",
+      "picture/201705230325425370.jpg",
+      "picture/timg.jpg",
+      "picture/20170523112531518.jpg",
+      "picture/201705231125377437.jpg",
+      "picture/201705231125464240.jpg",
+      "picture/201705241345177042.jpg",
+      "picture/20170524134745684.jpg",
+      "picture/201705241348316873.jpg",
+      "picture/201705241350476660.jpg",
+      "picture/201705241411079033.jpg",
+      "picture/201705241412558707.jpg",
+      "picture/201705241413229405.jpg",
+      "picture/201705241413379864.jpg",
+      "picture/201705241413597246.png",
+      "picture/201705241417025437.jpg",
+      "picture/201705241420448778.png",
+      "picture/201705241421412783.jpg",
+      "picture/201705241422263456.png",
+      "picture/201705241422564456.jpg"
+    ],
+    "refer": []
+  },
+  "template/news.html": {
+    "resources": [
+      "img/timg.jpg",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "js/jquery-1.8.0.min.js",
+      "js/angular.min.js",
+      "news_state.php",
+      "news.php",
+      "picture/logo.png",
+      "picture/timg.jpg",
+      "picture/11.jpg"
+    ],
+    "refer": [
+      "template/look_news.html"
+    ]
+  },
+  "template/claim.html": {
+    "resources": [
+      "img/1.png",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "img/1.jpg",
+      "img/timg.jpg",
+      "claim.php",
+      "js/angular.min.js",
+      "picture/1.jpg",
+      "picture/201705221322572532.jpg",
+      "picture/201705230326499564.jpg",
+      "picture/11.jpg",
+      "picture/201705241345177042.jpg",
+      "picture/20170524134745684.jpg",
+      "picture/201705241350476660.jpg",
+      "picture/201705241410361252.jpg",
+      "picture/201705241411079033.jpg",
+      "picture/201705241412558707.jpg",
+      "picture/201705241413229405.jpg",
+      "picture/201705241413379864.jpg",
+      "picture/201705241413597246.png",
+      "picture/201705241417025437.jpg",
+      "picture/201705241422564456.jpg",
+      "picture/201705241423518263.png",
+      "js/jquery-1.8.0.min.js"
+    ],
+    "refer": []
+  },
+  "template/release.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "fonts/mui.ttf"
+    ],
+    "refer": []
+  },
+  "template/goods.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "fonts/iconfont.woff",
+      "js/ajaxfileupload.js",
+      "js/jquery-1.8.0.min.js"
+    ],
+    "refer": []
+  },
+  "template/person.html": {
+    "resources": [
+      "fonts/iconfont.woff",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css"
+    ],
+    "refer": []
+  },
+  "template/my.html": {
+    "resources": [
+      "js/mui.min.js",
+      "img/timg.jpg",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "css/my.css",
+      "js/jquery-1.8.0.min.js",
+      "template/account.html",
+      "template/privacy.html",
+      "template/about.html",
+      "template/friend.html",
+      "picture/timg.jpg",
+      "picture/logo.png",
+      "js/angular.min.js",
+      "picture/11.jpg",
+      "picture/201705241345177042.jpg",
+      "picture/201705241348316873.jpg",
+      "picture/201705241350476660.jpg",
+      "picture/201705241413597246.png",
+      "picture/201705241417025437.jpg",
+      "picture/201705241420448778.png",
+      "picture/201705241422564456.jpg",
+      "picture/201705241423518263.png"
+    ],
+    "refer": [
+      "template/account.html",
+      "template/privacy.html",
+      "template/about.html",
+      "template/friend.html",
+      "template/general.html",
+      "template/my_search.html",
+      "template/my_claim.html",
+      "template/my_friend.html",
+      "template/login.html",
+      "template/change_pic.html"
+    ]
+  },
+  "template/account.html": {
+    "resources": [
+      "css/my.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "picture/timg.jpg",
+      "picture/logo.png"
+    ],
+    "refer": []
+  },
+  "template/privacy.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css"
+    ],
+    "refer": []
+  },
+  "template/about.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "img/logo.png"
+    ],
+    "refer": []
+  },
+  "template/friend.html": {
+    "resources": [
+      "js/mui.min.js",
+      "img/timg.jpg",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "fonts/iconfont.woff",
+      "js/jquery-1.8.0.min.js",
+      "js/angular.min.js"
+    ],
+    "refer": []
+  },
+  "template/my_search.html": {
+    "resources": [
+      "js/mui.min.js",
+      "img/1.jpg",
+      "img/timg.jpg",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "js/jquery-1.8.0.min.js",
+      "js/angular.min.js",
+      "my_search.php",
+      "fonts/iconfont.woff"
+    ],
+    "refer": []
+  },
+  "template/login.html": {
+    "resources": [
+      "js/mui.min.js",
+      "img/timg.jpg",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "template/login.html",
+      "img/line.png",
+      "js/jquery-1.8.0.min.js",
+      "login_pic.php",
+      "picture/logo.png"
+    ],
+    "refer": [
+      "template/login.html",
+      "template/index.html",
+      "template/register.html"
+    ]
+  },
+  "template/register.html": {
+    "resources": [
+      "js/mui.min.js",
+      "img/line.png",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "template/register.html",
+      "js/jquery-1.8.0.min.js"
+    ],
+    "refer": [
+      "template/register.html",
+      "template/login.html"
+    ]
+  },
+  "template/look_news.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "img/1.jpg",
+      "fonts/mui.ttf",
+      "img/timg.jpg",
+      "js/jquery-1.8.0.min.js",
+      "js/angular.min.js",
+      "look_news.php"
+    ],
+    "refer": []
+  },
+  "template/my_friend.html": {
+    "resources": [
+      "fonts/iconfont.woff",
+      "js/mui.min.js",
+      "img/timg.jpg",
+      "js/jquery-1.8.0.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "js/angular.min.js",
+      "my_friend.php"
+    ],
+    "refer": []
+  },
+  "template/my_claim.html": {
+    "resources": [
+      "js/mui.min.js",
+      "img/timg.jpg",
+      "js/jquery-1.8.0.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "js/angular.min.js",
+      "my_claim.php"
+    ],
+    "refer": []
+  },
+  "template/change_pic.html": {
+    "resources": [
+      "js/mui.min.js",
+      "img/timg.jpg",
+      "js/jquery-1.8.0.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "js/angular.min.js",
+      "picture/11.jpg",
+      "js/ajaxfileupload.js"
+    ],
+    "refer": []
+  }
+}

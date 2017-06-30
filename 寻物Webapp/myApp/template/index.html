@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../js/mui.min.js"></script>
+    <link href="../css/iconfont.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link href="../css/style.css"  rel="stylesheet"/>
+    <script src="../js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    mui.init();
+//  mui.init({
+//  subpages:[{
+//    url:'goods.html',
+//    id:'goods.html',
+//    styles:{
+//      top:'0px',//mui标题栏默认高度为45px；
+//      bottom:'50px',//默认为0px，可不定义；
+//      
+//    }
+//  }]
+//});
+    var subpages=['search.html','claim.html','release.html','news.html','my.html','goods.html'];
+    var subpage_style={
+    	top:'0px',
+    	bottom:'50px'
+    	
+    };
+    var subpage_sty={
+    	top:'0px',
+    	bottom:'0px'
+    }
+    //创建子页面
+    var loadedN=0;
+    mui.plusReady(function(){
+    	//获取当前页面
+    	var self=plus.webview.currentWebview();
+    	for(var i=0;i<subpages.length;i++){
+    		if(i==2){
+    			var sub=plus.webview.create(subpages[i],subpages[i],subpage_sty);
+    		}
+    		var sub=plus.webview.create(subpages[i],subpages[i],subpage_style);
+    		
+    		if(i>0){
+    			sub.hide();
+    		}
+    		sub.addEventListener("loaded",function(){
+    			loadedN++;
+    			if(loadedN==subpages.length){
+    				plus.navigator.closeSplashscreen();
+    			}
+    		});
+    		self.append(sub);
+    	}
+    });
+    function webviewloaded(e){
+    	
+    }
+    //激活當前頁面
+    var activeTab=subpages[0];
+    var lastActiveTabs=[];
+    mui.plusReady(function(){
+    	mui('.mui-bar-tab').on('tap','a',function(e){
+    		var targetTab=this.getAttribute('href');
+
+    		if(targetTab==activeTab){
+    			return;
+    		}
+    	   	 this.setAttribute('style','top:0px;');
+    		   plus.webview.show(targetTab);
+    		   plus.webview.hide(activeTab);
+    		   //记录上次活跃的选项卡
+              lastActiveTabs.push(activeTab);
+              activeTab = targetTab;
+
+              });
+              });
+              
+              $(function() {
+              		$.ajax({
+              	      url:'http://192.168.1.112/myApp/index.php',
+//            		  url: '../index.php',
+              		  type: "POST",
+              		  success: function(data) {
+              		  	if(data==0){
+              		  		 $(".mui-badge").css('display','none');
+              		  	}else{
+              		  		$(".mui-badge").css('display','block');
+              		  		   $(".mui-badge").html(data);
+              		  	}
+                     
+              		 }
+              	 });              		
+              
+              })</script>
+ 
+</head>
+<body>
+      <div class="mui-page">
+		<nav class="mui-bar mui-bar-tab" >
+			<a class="mui-tab-item mui-active" href="search.html">
+				<span class="mui-icon iconfont icon-chazhao" ></span>
+				<span class="mui-tab-label">寻物</span>
+			</a>
+			<a class="mui-tab-item" href="claim.html">
+				<span class="mui-icon iconfont icon-lingwuzhongxin"></span>
+				<span class="mui-tab-label">招领</span>
+			</a>
+			<a class="mui-tab-item release_info" href="goods.html">
+				<span class="release">
+				<span class="mui-icon  iconfont icon-jia"></span>
+				</span>
+			</a>
+			<a class="mui-tab-item" href="news.html">
+				<span class="mui-icon  iconfont icon-xiaoxi"><span class="mui-badge">9</span></span>
+				<span class="mui-tab-label">消息</span>
+			</a>
+			<a class="mui-tab-item" href="my.html">
+				<span class="mui-icon iconfont icon-wo"></span>
+				<span class="mui-tab-label">我</span>
+			</a>
+		</nav>
+		
+	</div>	
+</body>
+</html>

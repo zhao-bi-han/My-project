@@ -1,0 +1,211 @@
+<?php /* Smarty version Smarty-3.1.14, created on 2017-04-28 10:42:38
+         compiled from "templates\stu_update.html" */ ?>
+<?php /*%%SmartyHeaderCode:2054758fef591413896-42791952%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'ff25bf11d44a0821728bef46e9fcadfd6c72aa12' => 
+    array (
+      0 => 'templates\\stu_update.html',
+      1 => 1493347337,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '2054758fef591413896-42791952',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.14',
+  'unifunc' => 'content_58fef5914b8a43_22684385',
+  'variables' => 
+  array (
+    'stu' => 0,
+    'stu_1' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_58fef5914b8a43_22684385')) {function content_58fef5914b8a43_22684385($_smarty_tpl) {?><!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="plugins/layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="css/main.css" />
+	<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="js/ajaxfileupload.js"></script>
+	<style type="text/css">
+		body{
+			overflow:hidden; 
+		}
+		.layui-field-box{
+			padding: 10px 43px;
+		}
+		#update{
+			position: relative;
+			left: 58%;
+		}
+		.layui-input, .layui-textarea{
+			width: 80%;
+		}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+			var num=$("#no").val();
+			var upload=$("#upload").val();
+			var filename;
+			$(".layui-btn").click(function(event) {
+				var no=$("#no").val();
+				var name=$("#name").val();
+				var grade=$("#grade").val();
+				var major=$("#major").val();
+				var phone=$("#phone").val();
+				var card=$("#card").val();
+                if(upload.indexOf("/")>0)
+                {
+                	filename=upload.substring(upload.lastIndexOf("/")+1);
+                }
+                else
+                {
+                	filename=upload;
+                }
+				if(no==''||name==''||grade==''||major==''||phone==''||card==''){
+					layer.msg("请填写完整信息");
+				}else{
+					layer.msg("正在提交信息");
+					setTimeout(function(){
+						$.ajax({
+							url: 'stu_update_cl.php',
+							type: 'POST',
+							data: {
+								'no':no,
+								'name':name,
+								'grade':grade,
+								'major':major,
+								'phone':phone,
+								'card':card,
+								'pic':filename,
+								'num':num
+							},
+							success: function(text){
+							// alert(text);
+							if(text==1){
+								layer.msg("修改成功");
+								location.href="student_list.php";
+							}
+						}
+					})
+					},100);
+					
+				}
+			});
+			$("#file").change(function(event) {
+				$.ajaxFileUpload({
+					url: 'uploadpic.php', 
+					secureuri: false, 
+					fileElementId: 'file', 
+					dataType: 'json', 
+					type:"POST",
+					data:{
+						'id':0
+					},
+					success : function(data, status) {					
+						$("#upload").val(data);
+						upload=$("#upload").val();
+					} 
+				});
+			});
+
+			//返回
+			$("#back").click(function(event) {
+				location.href="student_list.php";
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<div class="admin-main">
+		<fieldset class="layui-elem-field">
+			<legend>修改学生信息</legend>
+			<div class="layui-field-box">
+				<form class="layui-form" action="" method="post">
+					<div class="layui-form-item">
+						<label class="layui-form-label">学&nbsp;&nbsp;&nbsp;号</label>
+						<div class="layui-input-block add-stu">
+							<input type="text" name="number" autocomplete="off"  class="layui-input" value="<?php echo $_smarty_tpl->tpl_vars['stu']->value[0]['stu_no'];?>
+" id="no">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">姓&nbsp;&nbsp;&nbsp;名</label>
+						<div class="layui-input-block">
+							<input type="text" name="name" autocomplete="off" value="<?php echo $_smarty_tpl->tpl_vars['stu']->value[0]['stu_name'];?>
+" class="layui-input" id="name">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">照&nbsp;&nbsp;&nbsp;片</label>
+						<div class="layui-input-block">
+							<input type="file" name="file" accept="image/png, image/jpg,image/jpeg" class="layui-upload-file" style="opacity: 1;" id="file"> 
+							<input type="hidden" name="upload" id="upload" value="<?php echo $_smarty_tpl->tpl_vars['stu']->value[0]['stu_picture'];?>
+">  
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">年&nbsp;&nbsp;&nbsp;级</label>
+						<div class="layui-input-block">
+							<input type="text" name="nj" autocomplete="off" value="<?php echo $_smarty_tpl->tpl_vars['stu']->value[0]['stu_grade'];?>
+" class="layui-input" id="grade">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">专&nbsp;&nbsp;&nbsp;业</label>
+						<div class="layui-input-block">
+							<input type="text" name="zy" autocomplete="off" value="<?php echo $_smarty_tpl->tpl_vars['stu']->value[0]['stu_major'];?>
+" class="layui-input" id="major">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">手机号</label>
+						<div class="layui-input-inline">
+							<input type="tel" name="phone" lay-verify="phone" autocomplete="off" class="layui-input" value="<?php echo $_smarty_tpl->tpl_vars['stu_1']->value[0]['p_phone'];?>
+" id="phone">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">卡&nbsp;&nbsp;&nbsp;号</label>
+						<div class="layui-input-block">
+							<input type="text" name="card" autocomplete="off" value="<?php echo $_smarty_tpl->tpl_vars['stu_1']->value[0]['p_card'];?>
+" class="layui-input" id="card">
+						</div>
+					</div>
+				</form>
+
+				<div class="layui-input-block" id="update">
+					<button class="layui-btn" lay-submit="" lay-filter="demo1" name="sub">修改</button>
+					<button class="layui-btn" id="back">返回</button>
+				</div>
+				
+
+			</div>
+		</fieldset>
+	</div>
+	<script type="text/javascript" src="plugins/layui/layui.js"></script>
+	<script>
+		layui.config({
+			base: 'plugins/layui/modules/'
+		});
+
+		layui.use(['icheck', 'laypage','layer'], function() {
+			var $ = layui.jquery,
+			laypage = layui.laypage,
+			layer = parent.layer === undefined ? layui.layer : parent.layer;
+			$('input').iCheck({
+				checkboxClass: 'icheckbox_flat-green'
+			});
+		});
+	</script>
+</body>
+
+</html><?php }} ?>

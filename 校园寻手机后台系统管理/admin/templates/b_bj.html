@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="plugins/layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href="css/my.css" />
+	<script type="text/javascript" src="plugins/layui/layui.js"></script>
+	<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+	<style type="text/css">
+		.layui-field-box.b_bj input{
+			width: 239px;
+
+		}
+		.img{
+			position: absolute;
+			width: 200px;
+			height: 200px;
+			border: 1px solid #E6E6E6;
+			left: 428px;
+			top: 140px;
+			overflow: hidden;
+		}
+		.img img{
+			width: 200px;
+			height: auto;
+		}
+		.yl_pho{
+			position: absolute;
+			left: 424px;
+			top: 72px;
+		}
+		.baojing{
+			position: absolute;
+			left: 538px;
+			top: 420px;
+		}
+		.layui-input-block{
+			margin-left: 0px;
+		}
+		.layui-input-block.search{
+			margin-left: 85px;
+		}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+    //搜素
+    $("#search").click(function(event) {
+    	var value=$(".layui-input").val();
+    	if(value==''){
+    		alert("请输入学号");
+    	}else{
+    		$.ajax({
+    			url: 'b_bj_search.php',
+    			type: 'POST',
+    			dataType:"json",
+    			data: {
+    				'search': $(".layui-input").val(),
+     				//判断是在查询还是报警
+     				'way':1
+     			},
+     			success: function(text){
+     				if(text==0){
+     					layer.msg("没查到该学生的信息"); 
+
+     				}else{
+     					$("#no").val(text[0]['stu_no']);
+     					$("#name").val(text[0]['stu_name']);
+     					$("#grade").val(text[0]['stu_grade']);
+     					$("#major").val(text[0]['stu_major']);
+     					$("#phone").val(text[0]['p_phone']);
+     					$("#card").val(text[0]['p_card']);
+     					$(".img img").attr('src','picture/'+text[0]['stu_picture']);
+     				}
+     			}
+     		})
+    	}
+
+    });
+       //报警
+       $(".baojing").click(function() {
+       	var search=$(".layui-input").val();
+       	var no=$("#no").val();
+       	var ypho=$("#ypho").val();
+       	if(search!=''&& no!=''){
+       		if(ypho!=''){
+       			$.ajax({
+       				url: 'b_bj_search.php',
+       				type: 'POST',
+       				dataType:"json",
+       				data: {
+       					'stu_no': $("#no").val(),
+       					'p_phone':$("#ypho").val(),
+     				//判断是在查询1还是报警0
+     				'way':0
+     			},
+     			success: function(text){
+     				//本人已经报过警
+     				if(text==11){
+     					layer.msg("您已经报过警啦"); 
+     					setTimeout(function(){
+     						location.href="b_table.php";
+     					}, 1000);
+     					
+     					//他人已经报警
+     				}else if(text==10){
+     					layer.msg("您已经报过警啦"); 
+     					setTimeout(function(){
+     						location.href="yb_table.php";
+     					}, 1000);
+     				}
+     				else if(text==1){
+     					layer.msg("报警成功");
+     					//
+     					setTimeout(function(){
+     						location.href="b_table.php";
+     					}, 1000);
+     				}else if(text==2){
+     					layer.msg("报警失败");
+     				}
+     			}
+     		})
+       		}else{
+       			layer.msg("请填写预留手机号");
+       		}
+
+
+       	} 
+       });
+   });
+
+</script>
+</head>
+
+<body>
+	<div class="admin-main">
+		<fieldset class="layui-elem-field" >
+			<legend>本人报警</legend>
+			<form class="layui-form" action="">
+				<div class="layui-form-item">
+					<div class="layui-input-block search">
+						<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入学号" class="layui-input search_no1">
+						<a href="javascript:;" class="layui-btn layui-btn-small search1" id="search">
+							<i class="layui-icon">&#xe615;</i> 搜索
+						</a>
+					</div>
+				</div>
+
+			</form>
+			<div class="img">
+				<img src="">
+			</div>
+			<div class="layui-field-box b_bj">
+				<div class="layui-form-item" >
+					<label class="layui-form-label">学号</label>
+					<div class="layui-input-block">
+						<input type="text" name="number" autocomplete="off" disabled="disabled"  class="layui-input" id="no">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">姓名</label>
+					<div class="layui-input-block">
+						<input type="text" name="name" autocomplete="off" disabled="disabled"   class="layui-input" id="name">
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">年级</label>
+					<div class="layui-input-block">
+						<input type="text" name="number" autocomplete="off" disabled="disabled"  class="layui-input" id="grade">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">专业</label>
+					<div class="layui-input-block">
+						<input type="text" name="name" autocomplete="off" disabled="disabled" class="layui-input" id="major">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">手机号</label>
+					<div class="layui-input-inline">
+						<input type="tel" name="phone" lay-verify="phone" autocomplete="off" disabled="disabled" class="layui-input" id="phone" >
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">卡号 </label>
+					<div class="layui-input-block">
+						<input type="text" name="username" autocomplete="off"  disabled="disabled"  class="layui-input" id="card">
+					</div>
+				</div>
+				<div class="yl_pho">
+					<div class="layui-input-block">
+						<input type="text" name="username" autocomplete="off"    class="layui-input" placeholder="请填写预留手机号" style="width: 207px" id="ypho" maxlength="11">
+					</div>
+				</div>
+
+				<button class="layui-btn baojing">确认报警</button>
+			</div>
+		</fieldset>
+	</div>
+	<script>
+		layui.config({
+			base: 'plugins/layui/modules/'
+		});
+
+		layui.use(['icheck', 'laypage','layer'], function() {
+			var $ = layui.jquery,
+			laypage = layui.laypage,
+			layer = parent.layer === undefined ? layui.layer : parent.layer;
+			$('input').iCheck({
+				checkboxClass: 'icheckbox_flat-green'
+			});
+		});
+
+	</script>
+</body>
+
+</html>

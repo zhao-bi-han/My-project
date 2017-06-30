@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>帽子小铺</title>
+	<link rel="stylesheet" type="text/css" href="style/css/conn.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style/css/common.css">
+	<script type="text/javascript" src="style/js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="style/js/common.js"></script>
+</head>
+<body>
+	{#include "head.html"#}
+	<div class="middle">
+		<div class="mid" style="width: 100%;height: 400px; ">
+			<div id="img_1" class="img">
+				<div class="img1_cont">
+					<b>韩国版可爱尖尖顶奶嘴针织帽卷边粗线麻花帽子女秋冬天女巫毛线帽</b>
+				</div>
+				<div class="img1_title">
+					毛线帽
+				</div>
+				<div class="img1_img" >
+					<img src="style/img/index_hat1.png">
+				</div>
+			</div>
+			<div id="img_2" class="img" >
+				<div class="img2_cont">
+					<b>YTK实拍/高质量秋冬学生帽子小清新画家帽女南瓜八角蓓蕾帽子</b>
+				</div>
+				<div class="img2_title">
+					贝雷帽
+				</div>
+				<div class="img2_img">
+					<img src="style/img/index_hat2.jpg">
+				</div>
+			</div>
+			<div id="img_3" class="img">
+				<div class="img3_cont">
+					<b>2016新款韩版可折叠休闲米奇字母盆帽学院风黑色显瘦渔夫帽子</b>
+
+				</div>
+				<div class="img3_title">
+					渔夫帽
+
+				</div>
+				<div class="img3_img">
+					<img src="style/img/index_hat3.jpg">
+				</div>
+			</div>
+		</div>
+		<div class="quan">
+			<ul >
+				<li class="lii"></li>
+				<li class="lii"></li>
+				<li class="lii"></li>
+			</ul>
+		</div>
+	</div>
+	<div class="goods" >
+		<div class="goods_nav1">
+			<div class="triangle-up1"><span class="f1"><b>F1</b></span></div>
+			<div class="triangle-up"><span class="f1_woman1"><b> 女</b></span><span class="f1_woman2"><b>士</b></span></div>
+			<div class="triangle-up2"></div>
+		</div>
+		<hr class="hr_1">
+		<div class="goods_woman">
+			<ul>
+			{#foreach item=wgood from=$wgoods#}
+				<li>
+					<div class="gw_img">
+						<img src="{#$wgood['goods_img']#}">
+					</div>
+					<div class="gw_content">
+						<a href="#">{#$wgood['goods_content']#}</a>
+					</div>
+					<div class="gw_price"><b>￥{#$wgood['goods_price']#}</b></div>
+					{#if $namearray[1]==0#}
+					<div class="gw_celloct">
+						<a href="login.php"  onClick="return confirm('亲，你还没有登录呦！');"><img src="style/img/collect.png" ></a>
+					</div>
+					<div class="gw_cart">
+						<a href="login.php"  onClick="return confirm('亲，你还没有登录呦！');"><img src="style/img/cart.png"></a>
+					</div>
+					{#elseif $namearray[1]==1#}				
+					<div class="gw_celloct">
+						<a href="#" onclick="javascript:location='incollectcl.php?id={#$wgood['goods_id']#}'" >
+						<img src="{#$wgood['col']#}">
+                        <!--  <img src="style/img/collecth.png"> -->
+						</a>
+					</div>
+					<div class="gw_cart">
+						<a href="#"onclick="javascript:location='incartcl.php?id={#$wgood['goods_id']#}'"><img src="style/img/cart.png"></a>
+					</div>
+					{#/if#}
+				</li>
+				
+				{#/foreach#}
+			</ul>
+		</div>
+		<div class="goods_nav2">
+			<div class="triangle-up1"><span class="f1"><b>F2</b></span></div>
+			<div class="triangle-up"><span class="f1_woman1"><b> 男</b></span><span class="f1_woman2"><b>士</b></span></div>
+			<div class="triangle-up2"></div>
+		</div>
+		<hr class="hr_2">
+		<div class="goods_man">
+			<ul>
+			{#foreach item=mgood from=$mgoods#}
+				<li>
+					<div class="gm_img">
+						<img src="{#$mgood['goods_img']#}">
+					</div>
+					<div class="gm_content">
+						<a href="#">{#$mgood['goods_content']#}</a>
+					</div>
+					<div class="gm_price"><b>￥{#$mgood['goods_price']#}</b></div>
+					{#if $namearray[1]==0#}
+					<div class="gm_celloct">
+						<a href="login.php" onClick="return confirm('亲，你还没有登录呦！');" ><img src="style/img/collect.png"></a>
+					</div>
+					<div class="gm_cart">
+						<a href="login.php"  onClick="return confirm('亲，你还没有登录呦！');"><img src="style/img/cart.png"></a>
+					</div>
+					{#elseif $namearray[1]==1#}
+					<div class="gm_celloct">
+						<a href="#"
+onclick="javascript:location='incollectcl.php?id={#$mgood['goods_id']#}'" ><img src="{#$mgood['col']#}"></a>
+					</div>
+					<div class="gm_cart">
+						<a href="#"onclick="javascript:location='incartcl.php?id={#$mgood['goods_id']#}'"><img src="style/img/cart.png"></a>
+					</div>
+					{#/if#}
+				</li>
+				{#/foreach#}
+			</ul>
+		</div>
+
+		<div class="goods_nav3">
+			<div class="triangle-up1"><span class="f1"><b>F3</b></span></div>
+			<div class="triangle-up"><span class="f1_woman1"><b> 其</b></span><span class="f1_woman2"><b>他</b></span></div>
+			<div class="triangle-up2"></div>
+		</div>
+		<hr class="hr_3">
+		<div class="goods_other">
+			<ul>
+			{#foreach item=ogood from=$ogoods#}
+				<li>
+					<div class="go_img">
+						<img src="{#$ogood['goods_img']#}">
+					</div>
+					<div class="go_content">
+						<a href="#">{#$ogood['goods_content']#}</a>
+					</div>
+					<div class="go_price"><b>￥{#$ogood['goods_price']#}</b></div>
+					{#if $namearray[1]==0#}
+					<div class="go_celloct">
+						<a href="login.php"  onClick="return confirm('亲，你还没有登录呦！');"><img src="style/img/collect.png"></a>
+					</div>
+					<div class="go_cart">
+						<a href="login.php"  onClick="return confirm('亲，你还没有登录呦！');"><img src="style/img/cart.png"></a>
+					</div>
+					{#elseif $namearray[1]==1#}
+					<div class="go_celloct">
+						<a href="#" onclick="javascript:location='incollectcl.php?id={#$ogood['goods_id']#}'"><img src="{#$ogood['col']#}"></a>
+					</div>
+					<div class="go_cart">
+						<a href="#"onclick="javascript:location='incartcl.php?id={#$ogood['goods_id']#}'"><img src="style/img/cart.png"></a>
+					</div>
+					{#/if#}
+				</li>
+				{#/foreach#}
+			</ul>
+		</div>
+	</div>
+	<div style="clear: both;"></div>
+	{#include "footer.html"#} 
+
+</body>
+</html>

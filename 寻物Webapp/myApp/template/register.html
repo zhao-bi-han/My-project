@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html style="background-color: #fff;">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../js/mui.min.js"></script>
+    <link href="../css/iconfont.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link href="../css/style.css"  rel="stylesheet"/>
+    <script src="../js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    mui.init() ;
+    $(function(){
+    	 $(".login_reg").bind('tap',function(){
+    	mui.openWindow({
+    		url:'login.html',
+    		id:'login',
+    		show:{
+    			duration:300
+    		}
+    	});
+    });
+    
+     $(".reg_btn").bind('tap',function(e){
+       	e.preventDefault();
+       	 //登录判断
+       	 var name=$("input[name='name']").val();
+         var phone=$("input[name='phone']").val();
+         var pass=$("input[name='pass']").val();
+         var cpass=$("input[name='cpass']").val();
+         if(name==''||phone==''|| pass==''){
+         	mui.toast("请输填写完整信息");
+         }else if(cpass==''){
+         	mui.toast("请确认密码");
+         }else if(pass!=cpass){
+         	mui.toast("两次密码不一致，请重新输入");
+         }else{
+         			$.ajax({
+         		 url:"http://192.168.1.112/myApp/register.php",
+//   				url:"../register.php",
+     				type:"POST",
+     				dataType:"json",
+     				data:{
+     					'name':name,
+     					'pass':pass,
+     					'phone':phone
+     				},
+     				success: function(text){
+     					if(text==1){
+     					mui.toast("注册成功");
+     					setTimeout(function(){
+     						mui.openWindow({
+    	                 	    url:'login.html',
+    		                    id:'login',
+    		                    show:{
+    			                duration:300
+    		                    }
+    	                    });
+     					},1500);
+       					  
+     					}else{
+     						mui.toast("该手机号已注册");
+     					}
+     				}
+     			});
+         }
+
+       }); 
+    })
+   
+	</script>
+    </head>
+	<body>
+	<div class="mui-page">
+		<div class="mui-navbar-inner login_bar">
+				<span class="login_h login_close mui-action-back">取消</span>
+				<span class="login_h login_reg">登录</span>
+			</div>
+			<div class="mui-page-content" style="margin-top: 45px;background-color: #fff;">
+				<div class="reg_font">			
+					<div>输入手机号,快速注册</div>				
+				</div>
+				
+					<form class="reg_form">
+						<input type="text" placeholder="昵称" name="name">
+						<input type="text" placeholder="手机号" name="phone">
+						<input type="text"  placeholder="密码" name="pass">
+						<input type="text"  placeholder="确认密码" name='cpass'>  
+					</form>
+					 <button class="reg_btn">立即注册</button>
+				<div class="other">
+				    <dd>其他方式注册</dd>
+				</div>
+			</div>
+			
+	</div>
+	</body>
+</html>

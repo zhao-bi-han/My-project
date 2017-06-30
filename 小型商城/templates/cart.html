@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style/css/common.css">
+	<link rel="stylesheet" type="text/css" href="style/css/conn.css">
+	<!-- <link rel="stylesheet" type="text/css" href="style/css/goods.css"> -->
+	<script type="text/javascript" src="style/js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="style/js/common.js"></script>
+	
+	<script type="text/javascript">
+		window.onload=function(){
+			var put1=document.getElementById('quan');
+			var odiv=document.getElementById('dan');
+            var put2=odiv.getElementsByTagName('input'); 
+            put1.onclick=function(){
+            	if (put1.checked==true) {
+            		for(var i=0;i<put2.length;i++){
+                         put2[i].checked=true;
+            		}
+            	
+            	}else if(put1.checked==false){
+                 for(var i=0;i<put2.length;i++){
+                         put2[i].checked=false;
+            		}
+            	}
+            }
+		}
+	</script>
+</head>
+<body >
+	{#include "head.html"#}
+	<hr class="wm_hr" id="wm_hr">
+	<div style="height: 2700px;" class="body_goods">
+		<div class="woman_head">
+			<div class="woman_head_l" id="cellect">我的购物车</div>
+			<div class="woman_head_r" id="woman_head_cart">全部宝贝</div>
+		</div>
+		<div class="cart_nav">
+			<div class="cart_qx">
+				<input type="checkbox" name="" id="quan">
+				<span>全选</span> 
+			</div>
+			<div class="cart_sp">商品</div>
+			<!-- <div class="cart_spxx"></div> -->
+			<div class="cart_dj">单价</div>
+			<div class="cart_sl">数量</div>
+			<div class="cart_je">金额</div>
+			<div class="cart_cz">操作</div>
+		</div>
+		<div class="wgoods_list" id="cart_list" >
+			<ul id="dan">
+			{#foreach item=car from=$cartgood#}
+				<li>
+					<div id="cart_qx">
+						<input type="checkbox" name="dan">
+					</div>
+					<div id="cart_sp">
+						<div class="cart_sp_img">
+							<img src="{#$car['cart_img']#}">
+						</div>
+						<div class="cart_sp_content">
+							{#$car['cart_content']#}
+						</div>
+					</div>
+					<div id="cart_dj"><b> {#$car['cart_price']#} </b></div>
+					<div id="cart_sl">1</div>
+					<div id="cart_je"><b>{#$car['cart_price']#} </b></div>
+					<div id="cart_cz"><a href="#" onclick="javescript:if(confirm('确定删除？')) location='cartdel.php?id={#$car['cart_id']#}'">删除</a></div>
+				</li>
+			{#/foreach#}	
+
+			</ul>
+			<div class="jiesuan">
+				<input type="submit" name="cart_sub" value="结算">
+			</div>
+		</div>
+
+	</div>	
+	 <div class="fenye">
+      <ul>
+         <li><a href="cart.php?page=1">第一页</a></li>
+          {#if $maxpage>4#}
+         <li><a href="cart.php?page=1">1</a></li>
+         <li><a href="cart.php?page=2">2</a></li>
+         <li><a href="cart.php?page=3">3</a></li>
+         <li><a href="cart.php?page=4">4</a></li>
+        <!--  <li><a href="other.php?page=5">5</a></li> -->
+         <li><a href="#">....</a></li>
+         <li><a href="cart.php?page={#$maxpage#}">{#$maxpage#}</a></li>
+          {#else#}
+        {#foreach name=page from=$maxarray item=index#}
+         <li><a href="cart.php?page={#$index#}">{#$index#}</a></li>
+        {#/foreach#}
+       {#/if#}
+         <li><a href="cart.php?page={#$maxpage#}">最后一页</a></li>
+      </ul>
+   </div>
+	{#include "footer.html"#}
+</body>
+</html>

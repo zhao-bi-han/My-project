@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		
+var count=0;
+function change(num){ 
+var arr=[]; 
+var str=num.toString().length;
+    if(str==1){
+        return count;
+
+    }else{
+         count++;         
+         arr=num.toString().split('');
+         console.log(arr);
+        var sum=1;
+        for(var i=0;i<arr.length;i++){
+        	arr[i]=parseInt(arr[i]);
+            sum=sum*arr[i];  
+                    
+        }
+        num=sum
+       change(num);
+    }
+  return count;
+}
+
+ alert( change(2999)) ;
+	</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+/* b_table.html 搜素框*/
+.layui-input-block.search{
+	width: 200px;
+	margin-left: 20px;
+	margin-top: 30px;
+	margin-bottom:5px;
+}
+.layui-input-block.search.b_bj{
+	margin-left: 79px;
+}
+.layui-input-block.search input{
+	width: 200px;
+}
+.layui-input-block.search a{
+	position: absolute;
+	left: 219px;
+    top: 4px;
+}
+/*认领页面 renling.html*/
+.admin-main.ren{
+	position: relative;
+}
+.left{
+	width: 520px;
+	float: left;
+	margin-left: 20px;
+}
+.left fieldset{
+	width: 520px;
+}
+.right{
+	position:relative;
+	width: 520px;
+	float: left;
+	margin-left: 20px;
+}
+.right fieldset{
+	width: 520px;
+}
+.layui-input-block.rl input{
+	width: 190px;
+}
+/* .layui-input-block.rl a{
+	position:absolute;
+	left: 212px;
+    top: 3px;
+} */
+.layui-form-item.renling{
+	position:relative;
+	left:-40px;
+}
+/*报警照片*/
+.stu_img{
+	position:absolute;
+	width:200px;
+	height:200px;
+	border:1px solid #E6E6E6;
+	left:292px;
+	top:30px;
+}
+.sk_img{
+	position:absolute;
+	width:200px;
+	height:200px;
+	border:1px solid #E6E6E6;
+	left:292px;
+	top:30px;
+}
+/*取消报警页面*/
+#quxiao{
+	position: absolute;
+	left:1019px;
+	top: 400px;
+/* 	margin-left: -100px; */
+}
+/*t_bj.html 并列框*/
+.layui-elem-field.bj_other{
+ position: absolute;
+ width: 520px;
+	margin-bottom:10px;
+	padding:0;
+	/*border:1px solid #e2e2e2*/
+}
+.layui-elem-field.ds_other{
+ position: absolute;
+ left:587px;
+ width:520px;
+	margin-bottom:10px;
+	padding:0;
+	/*border:1px solid #e2e2e2*/
+}
+.pic{
+	position: absolute;
+    left: 290px;
+    top: 119px;
+    width: 200px;
+    height: 200px;
+    border:1px solid #E6E6E6;
+}
+.layui-input.bj{			
+display: block;
+    width: 190px;
+    padding-left: 10px;
+    }
+.layui-btn.pre_alarm{
+	position: absolute;
+	left:1028px;
+	top:470px;
+}
+.layui-form-item.xx{
+	position: relative;
+    left: -60px;
+	
+}
+
+/*本人报警页面input*/

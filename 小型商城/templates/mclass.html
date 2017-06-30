@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style/css/common.css">
+	<link rel="stylesheet" type="text/css" href="style/css/conn.css">
+	<link rel="stylesheet" type="text/css" href="style/css/goods.css">
+	<script type="text/javascript" src="style/js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="style/js/common.js"></script>
+</head>
+<body>
+{#include "head.html"#}
+<hr class="wm_hr">
+<div class="body_goods">
+   <div class="woman_head">
+      <div class="woman_head_l">男性 /</div>
+      <div class="woman_head_r">{#$mgoods[0]['classname']#}</div>
+   </div>
+   <div class="wm_mid">
+   	 <ul>
+   	 	<li>综合排序</li>
+   	 	<li>销量</li>
+   	 	<li>人气</li>
+   	 	<li>信用</li>
+   	 	<li>价格</li>
+   	 	<li>新品</li>
+   	 </ul>
+   </div>
+  <div class="wgoods_list">
+          <ul>
+          {#foreach item=mgood from=$mgoods#}
+            <li>
+               <div class="gw_img">
+                  <img src="{#$mgood['goods_img']#}">
+               </div>
+               <div class="gw_content">
+                  <a href="#">{#$mgood['goods_content']#}</a>
+               </div>
+               <div class="gw_price"><b>￥{#$mgood['goods_price']#}</b></div>
+               {#if $namearray[1]==0#}
+               <div class="gw_celloct">
+                  <a href="login.php"  onClick="return confirm('亲，你还没有登录呦！');"><img src="style/img/collect.png"></a>
+               </div>
+               <div class="gw_cart">
+                 <a href="login.php"  onClick="return confirm('亲，你还没有登录呦！');"><img src="style/img/cart.png"></a>
+               </div>
+               {#elseif $namearray[1]==1#}
+               <div class="gw_celloct">
+                  <a href="#"onclick="javascript:location='mclass_collectcl.php?id={#$mgood['goods_id']#}'" ><img src="{#$mgood['col']#}"></a>
+               </div>
+               <div class="gw_cart">
+                 <a href="#" onclick="javascript:location='mclass_cartcl.php?id={#$mgood['goods_id']#}'"> <img src="style/img/cart.png"></a>
+               </div>
+               {#/if#}
+            </li>
+            {#/foreach#}
+          </ul>
+   </div>
+   </div>
+   <div class="fenye">
+      <ul>
+         <li><a href="mclass.php?page=1&id={#$id#}">第一页</a></li>
+          {#if $maxpage>6#}
+         <li><a href="mclass.php?page=1&id={#$id#}">1</a></li>
+         <li><a href="mclass.php?page=2&id={#$id#}">2</a></li>
+         <li><a href="mclass.php?page=3&id={#$id#}">3</a></li>
+         <li><a href="mclass.php?page=4&id={#$id#}">4</a></li>
+         <li><a href="mclass.php?page=5&id={#$id#}">5</a></li>
+         <li><a href="#">....</a></li>
+         <li><a href="mclass.php?page={#$maxpage#}&id={#$id#}">{#$maxpage#}</a></li>
+          {#else#}
+        {#foreach name=page from=$maxarray item=index#}
+         <li><a href="mclass.php?page={#$index#}&id={#$id#}">{#$index#}</a></li>
+        {#/foreach#}
+       {#/if#}
+         <li><a href="mclass.php?page={#$maxpage#}&id={#$id#}">最后一页</a></li>
+      </ul>
+   </div>
+   {#include "footer.html"#}
+</body>
+</html>

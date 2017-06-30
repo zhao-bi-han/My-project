@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>后台管理系统</title>
+	<link rel="stylesheet" type="text/css" href="style/css/login.css">
+</head>
+<body>
+<!--  <div class="fhh" style="position: absolute;left: 82%;top:20px;font-size: 12px;"><a href="index.php" style="color: #dddddd;text-decoration: none;">返回> </a></div> -->
+   <form action="" method="post">
+      <div class="bg">
+         <div class="login"><b>后台管理系统</b></div>
+         <div class="name">
+            <img src="style/images/user.png">
+            <input type="text" name="name" placeholder="用户名">
+         </div>
+         <div class="pass">
+          <img src="style/images/pass.png">
+          <input type="password" name="pass" placeholder="密码">
+       </div>
+       <div class="yzl">
+         <img src="style/images/yz.png">
+         <input type="text" name="yz" placeholder="验证码">
+      </div>
+      <div class="yzr">
+        <input type="text" name="yzc" value="{#$code#}" readonly="readonly" style="width: 73px;height: 27px;border: none;background:none;text-align: center;font-size: 22px ;margin-top: 3px" >  
+     </div>
+     <div class="sub">
+        <input type="submit" name="sub" value="登录">
+     </div>
+  </div>
+</form>
+</body>
+</html>
