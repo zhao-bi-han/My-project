@@ -6,6 +6,7 @@
 * 上一页、下一页的切换。
 ###### 3、 技术方面：
 * 把需要的数据都存在了json文件里，通过`Ajax`来获取`JSON`数据。
+* 对获取的`json`数据的处理，序列化和反序列化。
 * 使用 `localStorage`实现数据的本地缓存。
 * 通过`window.location.search`来获取两个`html`页面间的参数的传递。
 * 通过点击事件来实现上一页和下一页的切换，并通过`window.location.assign()`来改变url。
