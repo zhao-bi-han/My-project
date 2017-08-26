@@ -1,0 +1,31 @@
+body{padding-top:50px; }
+.carousel{height: 500px;}
+.carousel .item{height: 500px;}
+.carousel .item img{width: 100%;}
+.carousel-control{font-size: 40px;line-height: 500px;}
+.carousel-caption{margin-bottom: 100px;}
+.carousel-caption .btn{margin-top:20px; }
+.carousel-caption p{line-height: 30px;font-size: 18px;}
+.row.list{margin-top: 60px;}
+.row.list .col-md-4{text-align: center;color:#666;}
+.row.list .col-md-4 img{width: 100px;height: 100px;}
+.row.list .col-md-4 p{line-height: 22px;}
+.myTab{margin-top: 100px;}
+.tab-pane.fade .row{padding:30px 0;}
+.tab-pane.fade h1{margin-top: 120px;color:#2a6496;font-size: 46px;}
+.tab-pane.fade h1 small{padding-left: 10px;}
+.tab-pane.fade p{line-height: 24px;color:#666;font-size: 16px;}
+hr.divider{margin-top: 50px;}
+footer p.pull-right{padding-right: 50px;}
+footer p.pull-right a{color:#999;text-decoration:none;}
+footer p.pull-right a:hover{color:blue}
+/*响应式*/
+@media (max-width: 768px) {
+	.carousel {height: 300px;margin-bottom: 30px; }
+	.carousel .item { height: 300px;  }
+	.carousel img { min-height: 300px; }
+	.carousel-caption{margin-bottom: 0px;}
+	.carousel-control{line-height: 300px;}
+	.row.list .col-md-4{margin-top: 30px;}
+	.tab-pane.fade h1{margin-top: 30px;}
+}
