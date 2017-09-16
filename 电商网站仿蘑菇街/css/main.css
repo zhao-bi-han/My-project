@@ -57,8 +57,28 @@ input,button{background:none;outline:none;border:none;}
 .main .mianImg{width: 770px;height: 400px;overflow: hidden}
 /*shoplist*/
 .shopTit{height: 20px;margin-top: 40px;margin-bottom:14px;}
-.shopTit span{float:left;display:block;width: 7px;height:20px;background-color:#9f87cf}
+.shopTit span{float:left;display:block;width: 7px;height:20px;}
+.shopTit span.wear{background-color:#FF484D}
+.shopTit span.brand{background-color:#9f87cf}
 .shopTit h3{float:left;margin-left:10px;font-weight:normal;font-size:20px;line-height:20px;font-family: "微软雅黑"}
+/*红人穿搭*/
+.redsWear{overflow: hidden}
+.wear-list{width: 790px;float: left}
+.wear-list .wrap{margin-right: -10px;}
+.redsWear .list-box{float: left;width: 150px;height: 310px;margin-right: 10px;cursor:pointer;}
+.redsWear .list-box .list-item{position:absolute;transition:transform 2s ease}
+.redsWear .list-box img{width: 150px;height: 310px}
+.redsWear .list-box a{position: absolute;bottom:20px;display: block;width: 120px;text-align: center;background-color: rgba(0,0,0,0.5);color:#fff ;font-size: 14px;padding:4px 0;left:10px;border-radius:20px;}
+.redsWear .list-box .list-item.back a{transform:rotateY(180deg);}
+.front{backface-visibility: hidden;  /*使背面不可见*/}
+.run{transform: rotateY(180deg);}
+.wear-right{width: 200px;margin-left: 10px;height: 310px;float: left;overflow: hidden}
+.wear-right ul{margin-right: -10px;}
+.wear-right li{position:relative;float: left;list-style: none;width: 95px;height:97px;overflow: hidden;margin-right: 10px;margin-bottom: 10px;border-radius:5px;}
+.wear-right img{width: 95px;height: auto;}
+.wear-right img:hover{opacity: 0.8;cursor:pointer;}
+.wear-right a{position:absolute;color:#fff;bottom:10px;display: block;width: 73px;height:20px;text-align: center;left:11px;}
+/*品牌特卖*/
 .shopList .leftArea{width: 216px;height: 360px;}
 .shopList .leftArea img{width:216px;height:360px;}
 .shopList .middleArea{width:598px;height: 358px;border:1px solid #f2f2f1;overflow: hidden;}
