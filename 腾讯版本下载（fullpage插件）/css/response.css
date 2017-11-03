@@ -1,0 +1,62 @@
+@media (min-width: 992px){
+    .text{
+        padding-top: 200px;
+        padding-left: 50px;
+    }
+    .text h2{
+        font-size: 52px;
+    }
+    .text p{
+        font-size: 22px;
+    }
+    .text span{
+        margin-right: 20px;
+    }
+    
+}
+@media (min-width: 768px) and (max-width: 992px){
+    .text{
+        padding-top: 200px;
+        padding-left: 50px;
+    }
+    .text h2{
+        font-size: 38px;
+    }
+    .text p{
+        font-size: 16px;
+    }
+    .text span{
+        margin-right: 5px;
+    }
+    /*第三屏*/
+    .section3 .images img:nth-of-type(2){
+        top:230px;
+    }
+    /*第五屏*/
+   .section5 .images img:nth-of-type(2){
+    top:140px;
+    }
+}
+@media (max-width: 767px){
+      /*头部*/
+    .logo{ 
+        margin-left: 10px;
+        height: 35px;
+        background: url('../img/logo.svg')  no-repeat;
+     }
+     /*头部*/
+     .text h2{
+        font-size: 24px;
+    }
+    .text p{
+        font-size: 14px;
+    }
+    .section3 .images img:nth-of-type(1){
+        margin-top: 180px;
+        
+     }
+     .section3 .images img:nth-of-type(2){
+      top: 5px;
+        
+     }
+}
