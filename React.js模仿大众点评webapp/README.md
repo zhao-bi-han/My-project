@@ -1,4 +1,4 @@
-# React.js模仿美团webapp
+# React.js模仿大众点评团webapp
 ## 相关技术
   React.js + Redux +  React-router + webpack + koa
 
