@@ -1,5 +1,6 @@
 # React.js模仿美团webapp
-## React.js + Redux +  React-router + webpack + koa
+##相关技术
+  React.js + Redux +  React-router + webpack + koa
 
 ## 功能描述
 * 用户登录
