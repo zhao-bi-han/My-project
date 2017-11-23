@@ -111,6 +111,32 @@ changeCity(newCity) {
     }
 ```
 
+## 效果图
+#### 首页
+![Image text](https://raw.githubusercontent.com/zhao-bi-han/My-project/master/React.js%E6%A8%A1%E4%BB%BF%E5%A4%A7%E4%BC%97%E7%82%B9%E8%AF%84webapp/show_img/home_1.jpg)
+![Image text](https://raw.githubusercontent.com/zhao-bi-han/My-project/master/React.js%E6%A8%A1%E4%BB%BF%E5%A4%A7%E4%BC%97%E7%82%B9%E8%AF%84webapp/show_img/home_2.jpg)
+
+#### 城市页
+![Image text](https://raw.githubusercontent.com/zhao-bi-han/My-project/master/React.js%E6%A8%A1%E4%BB%BF%E5%A4%A7%E4%BC%97%E7%82%B9%E8%AF%84webapp/show_img/city.png)
+
+#### 详情页
+![Image text](https://raw.githubusercontent.com/zhao-bi-han/My-project/master/React.js%E6%A8%A1%E4%BB%BF%E5%A4%A7%E4%BC%97%E7%82%B9%E8%AF%84webapp/show_img/detail_1.jpg)
+![Image text](https://raw.githubusercontent.com/zhao-bi-han/My-project/master/React.js%E6%A8%A1%E4%BB%BF%E5%A4%A7%E4%BC%97%E7%82%B9%E8%AF%84webapp/show_img/detail_2.png)
+
+#### 搜索页
+![Image text](https://raw.githubusercontent.com/zhao-bi-han/My-project/master/React.js%E6%A8%A1%E4%BB%BF%E5%A4%A7%E4%BC%97%E7%82%B9%E8%AF%84webapp/show_img/search.jpg)
+
+#### 用户中心
+![Image text](https://raw.githubusercontent.com/zhao-bi-han/My-project/master/React.js%E6%A8%A1%E4%BB%BF%E5%A4%A7%E4%BC%97%E7%82%B9%E8%AF%84webapp/show_img/user.png)
+
+#### 订单页
+![Image text](https://raw.githubusercontent.com/zhao-bi-han/My-project/master/React.js%E6%A8%A1%E4%BB%BF%E5%A4%A7%E4%BC%97%E7%82%B9%E8%AF%84webapp/show_img/order_1.png)
+![Image text](https://raw.githubusercontent.com/zhao-bi-han/My-project/master/React.js%E6%A8%A1%E4%BB%BF%E5%A4%A7%E4%BC%97%E7%82%B9%E8%AF%84webapp/show_img/order_2.png)
+
+#### 登录
+![Image text](https://raw.githubusercontent.com/zhao-bi-han/My-project/master/React.js%E6%A8%A1%E4%BB%BF%E5%A4%A7%E4%BC%97%E7%82%B9%E8%AF%84webapp/show_img/login_1.png)
+
+![Image text](https://raw.githubusercontent.com/zhao-bi-han/My-project/master/React.js%E6%A8%A1%E4%BB%BF%E5%A4%A7%E4%BC%97%E7%82%B9%E8%AF%84webapp/show_img/login_2.png)
 
 
 
