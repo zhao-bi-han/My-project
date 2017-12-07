@@ -1,0 +1,3 @@
+export const ADD_USERNAME="ADD_USERNAME";
+export const REMOVE_USER="REMOVE_USER";
+export const UPDATE_VISIBLE="UPDATE_VISIBLE"

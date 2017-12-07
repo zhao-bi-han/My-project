@@ -1,0 +1,50 @@
+.login-register{
+    display: inline-block;
+    cursor: pointer;
+}
+.login-register-form{
+    text-align: center;
+    font-size: 14px;
+    padding-bottom: 60px;
+    h2{
+        font-size: 22px;
+        margin: 10px 0 40px;
+    }
+    .ant-input-lg{
+        height: 40px;
+    }
+    Button{
+        width: 100%;
+        height: 40px;
+        background-color: #FBAF3A;
+        color:#fff;
+        border:none;
+    }
+    Button:hover,.ant-btn:focus{
+        background-color: #FBAF3A;
+        color:#fff;
+        border:none;
+    }
+    .other-info{
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        a{
+          padding:0 10px;
+          position: relative;
+          color:#666;
+        }
+        a + a::before{
+            content: "";
+            position: absolute;
+            height: 12px;
+            width: 1px;
+            background-color: #999;
+            left:0;
+            top:5px;
+        }
+    }
+}
+/*antd 默认样式*/
+.ant-form-explain{text-align: left}
+
