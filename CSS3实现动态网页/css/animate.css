@@ -1,0 +1,109 @@
+/*第一屏动画*/
+.screen-1-head,.screen-1-subhead{
+    transition: all 1s;
+}
+.screen-1-head-animate-init{
+   transform: translate(0,-100%);
+}
+.screen-1-subhead-animate-init{
+    transform: translate(0,100%);
+}
+.screen-1-head-animate-done,.screen-1-subhead-animate-done{
+    transform: translate(0)
+}
+/*第二屏动画*/
+.screen-2-head,.screen-2-subhead{
+    transition: all 1s;
+}
+.screen-2-head-animate-init{
+    transform: translate(0,-100%);
+ }
+ .screen-2-subhead-animate-init{
+     transform: translate(0,100%);
+ }
+ .screen-2-head-animate-done,.screen-2-subhead-animate-done{
+     transform: translate(0)
+ }
+ .screen-2-features-item{
+     transition: all 1s 1s;
+ }
+ .screen-2-features-item-init{
+     opacity: 0;
+     transform: translate(0,100%);
+ }
+ .screen-2-features-item-done{
+    opacity: 1;
+    transform: translate(0);
+ }
+ .screen-2-features-item span{
+     transition: all 1s;
+ }
+ .screen-2-features-item span:hover{
+     cursor: pointer;
+     transform: scale(1.2);
+ }
+ /*第三屏*/
+ .screen-3-head,.screen-3-subhead{
+    transition: all 1s;
+}
+.screen-3-pic{
+    transition: all 1s 1s;
+}
+.screen-3-head-animate-init{
+   transform: translate(0,-100%);
+}
+.screen-3-subhead-animate-init,.screen-3-pic-init{
+    transform: translate(0,100%);
+}
+.screen-3-head-animate-done,.screen-3-subhead-animate-done,.screen-3-pic-done{
+    transform: translate(0)
+}
+/*第四屛*/
+
+.screen-4-head,.screen-4-subhead,.screen-4-features{
+    transition: all 1s;
+}
+.screen-4-head-animate-init{
+   transform: translate(0,-100%);
+}
+.screen-4-subhead-animate-init,.screen-4-features-init{
+    transform: translate(0,100%);
+}
+.screen-4-head-animate-done,.screen-4-subhead-animate-done,.screen-4-features-done{
+    transform: translate(0)
+}
+/*第五屛*/
+.screen-5-head,.screen-5-subhead,.screen-5-pic{
+    transition: all 1s;
+}
+.screen-5-head-animate-init{
+   transform: translate(0,-100%);
+}
+.screen-5-subhead-animate-init,.screen-5-pic-init{
+    transform: translate(0,100%);
+}
+.screen-5-head-animate-done,.screen-5-subhead-animate-done,.screen-5-pic-done{
+    transform: translate(0)
+}
+/*导航*/
+.header{
+    transition: all 1s;
+}
+.header-active{
+    position: fixed;
+    left:0;
+    right: 0;
+    top:-61px;
+    background-color: #fff;
+    border-bottom:1px solid #f1f1f1;
+    z-index: 2;
+    transform: translate(0,100%)
+}
+/*侧边*/
+.slider{
+    transform: translate(60px,0);
+    transition: all 1s;
+}
+.slider-animate-show{
+    transform: translate(0);
+}
